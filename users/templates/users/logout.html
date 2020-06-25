@@ -1,0 +1,10 @@
+{% extends 'todolist/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="center-column" style="text-align: center; margin-top: 10px;">
+    <h1 class="heading-element">You have been logged out</h1>
+    <div>
+        <a href="{%url 'login' %}" class="ml-2">Login again</a>
+    </div>
+</div>
+{% endblock content%}

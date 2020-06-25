@@ -1,0 +1,96 @@
+.center-column{
+    width = 600px;
+    margin = 20px auto;
+    padding = 20px;
+    background-color: #ffbe0b
+    border-radius: 3px;
+}
+
+.todo-items{
+    max-width: 500px;
+    text-align: center;
+    background-color: #02C39A;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 3px;
+    color: #05386B;
+    font-size: 18px;
+}
+
+.paginator-object{
+    max-width: 500px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 3px;
+    color: #05386B;
+    font-size: 15px;
+}
+
+.heading-element{
+    font-size: 60px;
+    color: #05386B;
+}
+
+.btn-successful{
+    background-color: #05386B;
+    border-color: #05386B;
+    color: #EDF5E1;
+
+}
+
+.btn-successful:hover{
+    background-color: #0357ab;
+    color: #EDF5E1;
+}
+
+
+input::placeholder{
+    color: #d3d3d3;
+}
+
+
+
+body{
+
+    background-color: #5CDB95;
+
+}
+
+.topnav {
+  background-color: #379683;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #EDF5E1;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #02C39A;
+  color: #EDF5E1;
+}
+
+
+.high-priority{
+  color: red;
+  font-size: 23px;
+
+}
+
+
+.medium-priority{
+  color: #EDF5E1;
+  font-size: 20px;
+
+
+}

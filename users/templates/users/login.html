@@ -1,0 +1,32 @@
+{% extends 'todolist/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="center-column" style="text-align: center;">
+    <h1 class="heading-element">Sign in</h1>
+    <form method='POST' action="">
+            {% csrf_token %}
+            <div class="form-row" style="justify-content: center;">
+                  <div class="form-group col-md-6 mb-0" style="max-width: 500px;">
+                        {{ form.username|as_crispy_field }}
+                  </div>
+                  <div class="form-group col-md-6 mb-0" style="max-width: 500px;">
+                        {{ form.password|as_crispy_field }}
+                  </div>
+            </div>
+            <div class='form-group'>
+                <button class='btn btn-info' type='submit'>Login</button>
+            </div>
+        </form>
+
+    <div class="border-top pt-3">
+        <small class='text-muted'>Forgot your password?
+            <a href="{%url 'password_reset' %}" class="ml-1" style="color: #05386B">Click here</a>
+        </small>
+    </div>
+    <div">
+        <small class='text-muted'>Don't have an account?
+            <a href="{%url 'register' %}" class="ml-2" style="color: #05386B">Sign Up Here</a>
+        </small>
+    </div>
+</div>
+{% endblock content%}

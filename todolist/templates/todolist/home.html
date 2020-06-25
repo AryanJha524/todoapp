@@ -1,0 +1,52 @@
+{% extends 'todolist/base.html' %}
+{% block content %}
+    <div class="center-column">
+        <div style="text-align: center">
+            <h1 class="heading-element">
+                To Do List
+            </h1>
+                <form method='POST' action='/'>
+                    {% csrf_token %}
+                    {{ form.item_text }} <button class='btn btn-successful btn-sm mb-1' type='submit'>Add Task</button>
+                    <div class="mb-4" style="color: #05386B;"> Priority {{ form.priority }} </div>
+                </form>
+
+        </div>
+            {% for items in todo_items %}
+                <div class='todo-items mt-2'>
+                    {% if items.completed %}
+                        <strike>{{ items }}</strike>
+                    {% else %}
+                        {% if items.priority == 2 %}
+                            <span class="high-priority">(!!!) </span>{{ items }}<span class="high-priority"> (!!!)</span>
+                        {% elif items.priority == 1 %}
+                             <span class="medium-priority">(!) </span>{{ items }}<span class="medium-priority"> (!)</span>
+                        {% else %}
+                            {{ items }}
+                        {% endif %}
+                    {% endif %}
+                    <div>
+                        <a class='btn btn-danger btn-sm mt-1 mb-1' href="{% url 'todo-delete' items.id %}">Delete</a>
+                        <a class='btn btn-info btn-sm mt-1 mb-1' href="{% url 'todo-update' items.id %}">View</a>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="paginator-object">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a class='btn btn-info btn-sm mt-1 mb-1' href="?page=1">&laquo; First</a>
+                    <a class='btn btn-info btn-sm mt-1 mb-1' href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a class='btn btn-info btn-sm mt-1 mb-1' href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class='btn btn-info btn-sm mt-1 mb-1' href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                {% endif %}
+            </span>
+</div>
+    </div>
+{% endblock content%}

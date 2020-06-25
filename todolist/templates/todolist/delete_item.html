@@ -1,0 +1,15 @@
+{% extends 'todolist/base.html' %}
+{% block content %}
+<div class='center-column; mt-3' >
+    <div class="todo-items">
+        <form method='POST' action=''>
+            <h4 style="color: #05386B; text-align: center" class="mt-2">Are you sure you want to delete task:</h4>
+                <h4 style="color: #05386B; text-align: center" class="mb-2">"{{item}}"?</h4>
+            {% csrf_token %}
+            <button class='btn btn-danger btn-sm mt-1 mb-1 ml-1' type='submit'>Delete</button>
+            <a class='btn btn-secondary btn-sm mt-1 mb-1' href="{% url 'todo-home' %}">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock content%}
+

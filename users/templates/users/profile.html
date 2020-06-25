@@ -1,0 +1,21 @@
+{% extends 'todolist/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="center-column" style="text-align: center;">
+    <h1 class="heading-element">Hello {{ user.username }}.</h1>
+    <form method='POST'>
+            {% csrf_token %}
+            <div class="form-row" style="justify-content: center;">
+                  <div class="form-group col-md-6 mb-0" style="max-width: 430px;">
+                        {{ form.username|as_crispy_field }}
+                  </div>
+                  <div class="form-group col-md-6 mb-0" style="max-width: 430px;">
+                        {{ form.email|as_crispy_field }}
+                  </div>
+            </div>
+            <div class='form-group'>
+                <button class='btn btn-info' type='submit'>Update Account</button>
+            </div>
+        </form>
+</div>
+{% endblock content%}
